@@ -1,17 +1,21 @@
 [
   {
+    "id": 1,
     "name": "Go to the Grocery store",
     "status": "TODO"
   },
   {
+    "id": 2,
     "name": "Wash the car",
     "status": "TODO"
   },
   {
+    "id": 3,
     "name": "Call to make an appointment",
     "status": "TODO"
   },
   {
+    "id": 4,
     "name": "Wash the dishes",
     "status": "DONE"
   }

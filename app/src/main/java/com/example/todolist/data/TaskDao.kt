@@ -1,11 +1,12 @@
 package com.example.todolist.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface TaskDao {
     @Query("SELECT * FROM task")
-    fun getAll(): List<Task>
+    fun getAll(): LiveData<List<Task>>
 
     @Query("SELECT * FROM task WHERE id = :id")
     fun get(id: Int): Task
