@@ -3,6 +3,7 @@ package com.example.todolist.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ class TaskListAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvItemName: TextView = itemView.findViewById(R.id.tv_task_item_name)
+        private val ivCheckIcon: ImageView = itemView.findViewById(R.id.iv_check_icon)
 
         init {
             itemView.setOnClickListener {
@@ -29,6 +31,7 @@ class TaskListAdapter(
 
         fun bind(task: Task) {
             tvItemName.text = task.name
+            ivCheckIcon.visibility = if (task.status == "DONE") View.VISIBLE else View.INVISIBLE
         }
     }
 
