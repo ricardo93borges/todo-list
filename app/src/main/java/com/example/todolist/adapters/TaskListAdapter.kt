@@ -1,33 +1,25 @@
 package com.example.todolist.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
 import com.example.todolist.data.Task
+import com.example.todolist.viewmodels.TaskListViewModel
 
 class TaskListAdapter(
-    private var tasks: List<Task>
+    val tasks: MutableList<Task>
 ) : RecyclerView.Adapter<TaskListAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvItemName: TextView = itemView.findViewById(R.id.tv_task_item_name)
         private val ivCheckIcon: ImageView = itemView.findViewById(R.id.iv_check_icon)
-
-        init {
-            itemView.setOnClickListener {
-                val position = adapterPosition
-                Toast.makeText(
-                    itemView.context,
-                    "Clicked on item # ${position + 1}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
 
         fun bind(task: Task) {
             tvItemName.text = task.name

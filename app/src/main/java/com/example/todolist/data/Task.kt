@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class Task(
     @PrimaryKey val id: Int,
     val name: String,
-    val status: String,
+    var status: String,
 )
