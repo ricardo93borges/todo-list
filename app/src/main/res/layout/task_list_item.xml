@@ -4,6 +4,9 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:layout_marginBottom="20dp"
+    android:background="@drawable/task_list_item_bg"
+    android:elevation="2dp"
+    android:layout_margin="5dp"
     android:orientation="horizontal">
 
     <androidx.appcompat.widget.AppCompatImageView

@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.adapters.TaskListAdapter
 import com.example.todolist.viewmodels.TaskListViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TaskListFragment : Fragment() {
@@ -31,7 +29,7 @@ class TaskListFragment : Fragment() {
         rvTaskList = view.findViewById(R.id.rv_taskList)
         rvTaskList.layoutManager = LinearLayoutManager(view.context)
 
-        taskListViewModel.getTasks()
+        taskListViewModel.getToDoTasks()
 
         taskListViewModel.tasks?.observe(viewLifecycleOwner) {
             val adapter = TaskListAdapter(it)
