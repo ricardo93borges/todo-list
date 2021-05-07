@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.todolist.data.Status
 import com.example.todolist.data.Task
 import com.example.todolist.data.TaskDao
 import com.example.todolist.data.repositories.TaskRepository
@@ -17,15 +18,15 @@ class TaskListViewModel @Inject constructor(
 ): ViewModel() {
     var tasks: LiveData<MutableList<Task>>? = null
 
-    fun getTasks() {
+    fun getToDoTasks() {
         viewModelScope.launch {
-            tasks = taskRepository.getAll()
+            tasks = taskRepository.getToDoTasks()
         }
     }
 
     fun toggleTaskStatus(task: Task) {
         viewModelScope.launch {
-            task.status = if(task.status == "DONE") "TODO" else "DONE"
+            task.status = if(task.status == Status.DONE) Status.TODO else Status.DONE
             taskRepository.update(task)
         }
     }

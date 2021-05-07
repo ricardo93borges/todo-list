@@ -12,6 +12,9 @@ interface TaskDao {
     @Query("SELECT * FROM task WHERE id = :id")
     fun get(id: Int): Task
 
+    @Query("SELECT * FROM task WHERE status = :status")
+    fun getByStatus(status: Status): LiveData<MutableList<Task>>
+
     @Insert
     fun insert(task: Task)
 

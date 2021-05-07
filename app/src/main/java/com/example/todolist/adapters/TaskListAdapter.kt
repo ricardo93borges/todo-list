@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
+import com.example.todolist.data.Status
 import com.example.todolist.data.Task
 import com.example.todolist.viewmodels.TaskListViewModel
 
@@ -23,7 +24,7 @@ class TaskListAdapter(
 
         fun bind(task: Task) {
             tvItemName.text = task.name
-            ivCheckIcon.visibility = if (task.status == "DONE") View.VISIBLE else View.INVISIBLE
+            ivCheckIcon.visibility = if (task.status == Status.DONE) View.VISIBLE else View.INVISIBLE
         }
     }
 
